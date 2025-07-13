@@ -1,0 +1,10 @@
+{
+  "telegram_bot_token": "7834192235:AAGjbYda_IUdQXBBFv8sdJvkNWLPWqpgoFc",
+  "webhook_url": "https://1d2e96a5-e594-4ac7-9bbd-44f47853f593-00-2pwqd6fajbcvk.worf.replit.dev",
+  "session_secret": "dev-secret-key",
+  "port": 5000,
+  "host": "0.0.0.0",
+  "full_logs_chat_id": "-4876876954",
+  "admin_user_ids": [7667657028],
+  "required_user": "OrcaleDev"
+}

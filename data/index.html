@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Bot API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+        .config {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+        ul {
+            line-height: 1.6;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #495057;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Telegram Bot Server</h1>
+        <p class="status">✅ Server is running</p>
+        <p>This is the backend for the Telegram bot that generates custom HTML pages for nova.trade integration.</p>
+        
+        <div class="config">
+            <h3>📊 Server Status</h3>
+            <p><strong>Status:</strong> Active and ready</p>
+            <p><strong>Bot Type:</strong> Solana Wallet Group Chat Bot</p>
+            <p><strong>Features:</strong> Dynamic page generation, Webhook integration, Admin controls</p>
+        </div>
+        
+        <h2>🔗 Available Endpoints:</h2>
+        <ul>
+            <li><code>/webhook</code> - Telegram webhook endpoint</li>
+            <li><code>/&lt;filename&gt;</code> - Serve generated HTML pages (clean URLs)</li>
+            <li><code>/setup-webhook</code> - Manual webhook setup</li>
+            <li><code>/bot-status</code> - Check bot status and webhook info</li>
+        </ul>
+        
+        <h2>💬 Bot Commands:</h2>
+        <ul>
+            <li><code>/start</code> - Check setup status and get started</li>
+            <li><code>/setup WALLET_ADDRESS</code> - Set up wallet address for group</li>
+            <li><code>/page</code> - Generate HTML bookmarklet page</li>
+            <li><code>/full WALLET_ADDRESS</code> - Generate admin full page (admin only)</li>
+            <li><code>/export</code> - Download HTML file</li>
+            <li><code>/send CHAT_ID AMOUNT</code> - Send payout notification (admin only)</li>
+        </ul>
+
+        <h2>🚀 How to Use:</h2>
+        <ol>
+            <li>Add the bot to your Telegram group chat</li>
+            <li>Use <code>/setup YOUR_WALLET_ADDRESS</code> to configure your group</li>
+            <li>Use <code>/page</code> to generate your custom bookmarklet page</li>
+            <li>Share the generated URL with your group members</li>
+        </ol>
+    </div>
+</body>
+</html>

