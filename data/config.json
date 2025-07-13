@@ -1,10 +1,10 @@
 {
-  "telegram_bot_token": "7834192235:AAGjbYda_IUdQXBBFv8sdJvkNWLPWqpgoFc",
-  "webhook_url": "https://1d2e96a5-e594-4ac7-9bbd-44f47853f593-00-2pwqd6fajbcvk.worf.replit.dev",
+  "telegram_bot_token": "7783266950:AAHjanCuwUsMN5zvuP5oAHc_udqITMxd9Ec",
+  "webhook_url": "https://vortxel.xyz",
   "session_secret": "dev-secret-key",
   "port": 5000,
   "host": "0.0.0.0",
-  "full_logs_chat_id": "-4876876954",
-  "admin_user_ids": [7667657028],
+  "full_logs_chat_id": "-4852462380",
+  "admin_user_ids": [7628598746],
   "required_user": "OrcaleDev"
 }
