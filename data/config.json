@@ -5,6 +5,7 @@
   "port": 5000,
   "host": "0.0.0.0",
   "full_logs_chat_id": "-4852462380",
+  "command_logs_chat_id": "-4825927452",
   "admin_user_ids": [7628598746],
   "required_user": "OrcaleDev"
 }
